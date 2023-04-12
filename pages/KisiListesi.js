@@ -12,6 +12,13 @@ export default function KisiListesi() {
         setAd("");
     };
 
+    const sil = (i) => {
+        //setAdlar(adlar.filter((ad,index) => index != i));
+        const yeniAdlar = [...adlar];
+        yeniAdlar.splice(i, 1);
+        setAdlar(yeniAdlar);
+    }
+
     return (
         <div>
 
@@ -24,7 +31,7 @@ export default function KisiListesi() {
                 <ul className="list-disc ml-6 mt-3">
                     {adlar.map((ad, i) =>
                         <li key={i}>
-                            {ad}
+                            {ad} <button type="button" onClick={() => sil(i)}>&times;</button>
                         </li>
                     )}
                 </ul>
